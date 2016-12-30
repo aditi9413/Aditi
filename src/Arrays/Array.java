@@ -1,4 +1,4 @@
-package lesson1;
+package Arrays;
 
 public class Array {
 
