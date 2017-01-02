@@ -1,11 +1,18 @@
 package Sorting;
 
+import java.util.Scanner;
+
 public class SelectionSort {
 
 	public static void main(String[] args) {
-			int a[ ] = { 3,9, 8 ,2 ,6,1};
-			SelectionSort(a,6);
-			Printarray (a, 6);
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+        int a[]=new int [n];
+        for(int i =0;i<n;i++){
+        	a[i]=s.nextInt();
+        }
+			SelectionSort(a,n);
+			Printarray (a, n);
 	}
  static void SelectionSort(int a[], int n){
 	 for(int i=0;i<n;i++){

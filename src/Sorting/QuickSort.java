@@ -1,10 +1,16 @@
 package Sorting;
 
+import java.util.Scanner;
+
 public class QuickSort {
 
 	public static void main(String[] args)  {
-		int a[ ] = { 3,9, 8 ,2 ,6,1};
-		int n=a.length;
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+        int a[]=new int [n];
+        for(int i =0;i<n;i++){
+        	a[i]=s.nextInt();
+        }
 		  QuickSort ob = new QuickSort();
 	        ob.QuickSort(a, 0, n-1);
 		Printarray (a, n);
