@@ -1,4 +1,4 @@
-package Difficult;
+package BackTracking;
 
 import java.util.Scanner;
 

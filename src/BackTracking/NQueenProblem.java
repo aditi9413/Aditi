@@ -1,4 +1,4 @@
-package Difficult;
+package BackTracking;
 
 public class NQueenProblem {
 final int N =8;

@@ -1,4 +1,4 @@
-package Graph;
+package BackTracking;
 
 import java.util.Scanner;
 
