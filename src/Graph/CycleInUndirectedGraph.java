@@ -1,5 +1,7 @@
 package Graph;
 
+import java.io.*;
+import java.util.*;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -11,28 +13,29 @@ public class CycleInUndirectedGraph {
 		adj=new LinkedList[V];
 		for(int i =0;i<v;i++){
 			adj[i]=new LinkedList();
-		}
-	}
-	public static void addEdge(int v, int w){
+		}}
+		void addEdge(int v, int w){
 		adj[v].add(w);
+		adj[w].add(v);
 	}
-	public static boolean isCyclicUtil(int v , boolean visited[], int parent){
+	public static Boolean isCyclicUtil(int v , Boolean visited[], int parent){
 		visited[v]=true;
+		Integer n;
 		Iterator<Integer> i = adj[v].iterator();
 		while(i.hasNext()){
-			int n = i.next();
-			if(!visited[n])
+			n = i.next();
+			if(!visited[n]){
 				if(isCyclicUtil(n,visited,v))
-				return true;
+				return true;}
 				else if(n!=parent)
 					return true;
 		}
 		return false;
 	}
-	public static boolean isCyclic(){
-		boolean[] visited = new boolean[V];
+     Boolean isCyclic(){
+		Boolean[] visited = new Boolean[V];
 		for(int i =0;i<V;i++){
-			visited[i]=true;
+			visited[i]=false;
 		}
 		for(int u =0;u<V;u++)
 			if(!visited[u])

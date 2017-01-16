@@ -22,8 +22,8 @@ public class CycleOfDirectedGraph {
 		boolean[] visited = new boolean[V];
 		boolean[] recStack= new boolean[V];
 		for(int i =0;i<V;i++){
-			visited[i]=true;
-			recStack[i]=true;
+			visited[i]=false;
+			recStack[i]=false;
 		}
 		for(int u =0;u<V;u++)
 				if(isCyclicUtil(u,visited,recStack))
@@ -38,7 +38,7 @@ public class CycleOfDirectedGraph {
 		Iterator<Integer> i = adj[v].iterator();
 		while(i.hasNext()){
 			int n  = i.next();
-			if(visited[n]&& isCyclicUtil(n,visited,recStack)){
+			if(!visited[n]&& isCyclicUtil(n,visited,recStack)){
 				return true;
 			}
 			else if(recStack[n]){
@@ -50,12 +50,16 @@ public class CycleOfDirectedGraph {
 		return false;
 	}
 	public static void main(String[] args) {
-		CycleOfDirectedGraph g = new CycleOfDirectedGraph(2);
-		g.addEdge(0, 0);
-	    g.addEdge(0, 0);
+		CycleOfDirectedGraph g = new CycleOfDirectedGraph(4);
+		 g.addEdge(0, 1);
+		    g.addEdge(0, 2);
+		    g.addEdge(1, 2);
+		    g.addEdge(2, 0);
+		    g.addEdge(2, 3);
+		    g.addEdge(3, 3);
 	   
 	 
-        if (g.isCyclic()==true)
+        if (g.isCyclic()==false)
         { System.out.println("Graph contains cycle");}
         else
             System.out.println("Graph doesn't contains cycle");
